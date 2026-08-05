@@ -105,7 +105,7 @@
   .hero-meta .n { font-family: var(--f-display); font-weight: 800; font-size: 1.6rem; color: var(--ink); font-variant-numeric: tabular-nums; }
   .hero-meta .l { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
 
-  /* ---------- device mock ---------- */
+  /* ---------- cihaz çerçeveleri (içi GERÇEK ekran görüntüsü) ---------- */
   .devices { position: relative; display: grid; place-items: center; min-height: 460px; }
   .phone {
     width: 232px; height: 470px; border-radius: 40px;
@@ -114,38 +114,13 @@
     box-shadow: 0 40px 90px rgba(0,0,0,0.6), 0 0 0 1px rgba(185,255,60,0.04);
   }
   .phone .screen {
-    width: 100%; height: 100%; border-radius: 30px; background: #0b0e08;
-    padding: 16px 14px; display: flex; flex-direction: column; gap: 11px; overflow: hidden;
+    width: 100%; height: 100%; border-radius: 30px; background: #0b0e08; overflow: hidden;
   }
-  .scr-top { display: flex; justify-content: space-between; align-items: baseline; }
-  .scr-top .clock { font-family: var(--f-display); font-weight: 800; font-size: 1.9rem; color: var(--lime); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
-  .scr-top .lbl { font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
-  .metric-row { display: flex; gap: 8px; }
-  .metric {
-    flex: 1; background: var(--panel); border: 1px solid var(--panel-line);
-    border-radius: 12px; padding: 9px 10px;
+  /* Ekran görüntüsü kutuyu doldurur, oranı korunur; taşan alt şerit kırpılır. */
+  .phone .screen img, .watch .wscreen img {
+    display: block; width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
   }
-  .metric .v { font-family: var(--f-display); font-weight: 800; font-size: 1.1rem; font-variant-numeric: tabular-nums; }
-  .metric .k { font-family: var(--f-mono); font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-top: 1px; }
-  .set-card {
-    background: var(--panel); border: 1px solid var(--panel-line); border-radius: 14px;
-    padding: 12px 13px; display: flex; align-items: center; justify-content: space-between;
-  }
-  .set-card.done { background: rgba(185,255,60,0.07); border-color: rgba(185,255,60,0.28); }
-  .set-card .big { font-family: var(--f-display); font-weight: 800; font-size: 1.15rem; font-variant-numeric: tabular-nums; }
-  .set-card .prev { font-family: var(--f-mono); font-size: 9px; color: var(--ink-faint); letter-spacing: 0.06em; margin-top: 2px; }
-  .set-card .check {
-    width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center;
-    background: var(--lime); color: #0a0d05; font-weight: 900; font-size: 14px;
-  }
-  .set-card.todo .check { background: transparent; border: 1.5px solid var(--panel-line); color: transparent; }
-  .rest-band {
-    margin-top: auto; background: var(--lime); color: #0a0d05; border-radius: 12px;
-    padding: 9px 12px; display: flex; align-items: center; justify-content: space-between;
-    font-weight: 750;
-  }
-  .rest-band .t { font-family: var(--f-display); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
-  .rest-band .s { font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; }
 
   .watch {
     position: absolute; right: -6px; bottom: 8px;
@@ -156,12 +131,8 @@
     background-color: #0a0d07;
   }
   .watch .wscreen {
-    width: 100%; height: 100%; border-radius: 26px; background: #000;
-    padding: 11px 10px; display: flex; flex-direction: column; gap: 7px;
+    width: 100%; height: 100%; border-radius: 26px; background: #000; overflow: hidden;
   }
-  .watch .wtime { font-family: var(--f-display); font-weight: 800; font-size: 1.35rem; color: var(--lime); font-variant-numeric: tabular-nums; }
-  .watch .wlbl { font-family: var(--f-mono); font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
-  .watch .wrest { margin-top: auto; background: var(--lime); color: #000; border-radius: 10px; text-align: center; padding: 6px; font-family: var(--f-display); font-weight: 800; font-variant-numeric: tabular-nums; }
 
   .sync-pulse {
     position: absolute; left: 50%; top: 52%; transform: translate(-50%,-50%);
@@ -280,42 +251,20 @@
         </div>
       </div>
 
+      <!-- Kaynak: pazarlama/screenshots/ (gerçek yakalamalar) → site-assets/img/;
+           build-site.sh site/img/ olarak kopyalar. Taklit ekran kullanılmaz. -->
       <div class="devices">
         <div class="sync-pulse"></div>
         <div class="phone">
           <div class="screen">
-            <div class="scr-top">
-              <div><div class="lbl">Elapsed</div><div class="clock">24:18</div></div>
-              <div style="text-align:right"><div class="lbl">Bench Press</div><div class="lbl" style="color:var(--lime-deep)">Set 3 of 4</div></div>
-            </div>
-            <div class="metric-row">
-              <div class="metric"><div class="v" style="color:var(--heart)">148</div><div class="k">♥ BPM</div></div>
-              <div class="metric"><div class="v" style="color:var(--warn)">312</div><div class="k">🔥 KCAL</div></div>
-            </div>
-            <div class="set-card done">
-              <div><div class="big">60 kg × 10</div><div class="prev">PREV · 57.5 × 10</div></div>
-              <div class="check">✓</div>
-            </div>
-            <div class="set-card done">
-              <div><div class="big">62.5 kg × 8</div><div class="prev">PREV · 60 × 8</div></div>
-              <div class="check">✓</div>
-            </div>
-            <div class="set-card todo">
-              <div><div class="big">62.5 kg × 8</div><div class="prev">TARGET</div></div>
-              <div class="check">✓</div>
-            </div>
-            <div class="rest-band">
-              <span class="s">⏳ Rest</span>
-              <span class="t">1:12</span>
-            </div>
+            <img src="img/hero-phone.jpg" width="640" height="1390"
+                 alt="GymGymA on iPhone: the workout summary for Pull Day — a New PR badge, a muscle heat-map silhouette, and duration, volume, sets and exercises.">
           </div>
         </div>
         <div class="watch">
           <div class="wscreen">
-            <div class="wlbl">Bench Press</div>
-            <div class="wtime">62.5<span style="font-size:0.6em;color:var(--ink-dim)"> kg</span></div>
-            <div class="wlbl">× 8 reps</div>
-            <div class="wrest">1:12</div>
+            <img src="img/hero-watch.png" width="330" height="404"
+                 alt="GymGymA on Apple Watch: the same workout with elapsed time, live heart rate and calories.">
           </div>
         </div>
       </div>
@@ -368,7 +317,7 @@
         <h2>A serious tracker, not a stripped-down companion.</h2>
       </div>
       <div class="feat-grid" style="margin-top:38px">
-        <div class="feat"><span class="num">01</span><div><h4>Right unit for every move</h4><p>Weight × reps for lifting, time for planks, time + distance for the treadmill — each exercise tracked the way it's actually done, with a built-in stopwatch.</p></div></div>
+        <div class="feat"><span class="num">01</span><div><h4>Right unit for every move</h4><p>Weight × reps for lifting, time for planks, time + distance for the treadmill — with a built-in stopwatch, so the machine work isn't squeezed into sets and reps.</p></div></div>
         <div class="feat"><span class="num">02</span><div><h4>Apple Health, done properly</h4><p>Live heart rate and real calories from the Watch during your session, written back to Health and your activity rings when you finish.</p></div></div>
         <div class="feat"><span class="num">03</span><div><h4>Synced rest timer</h4><p>Countdown on both screens the moment you check a set, with a haptic buzz on your wrist at zero — even on a locked screen.</p></div></div>
         <div class="feat"><span class="num">04</span><div><h4>Previous, PRs & history</h4><p>Last time's numbers sit right on the set card, personal records get a badge, and every workout is saved with a full history and progress charts.</p></div></div>
@@ -389,7 +338,8 @@
       <div class="aud-card">
         <div class="who">The Watch lifter</div>
         <blockquote>"I leave my phone in the bag and run the whole session from my wrist."</blockquote>
-        <div class="attr">Full parity — every action works from the Watch.</div>
+        <!-- Kapsam: WatchCommand = antrenman yürütme. Rutin/geçmiş/vücut/ayarlar telefonda. -->
+        <div class="attr">Every step of the session — start, log, rest, finish — runs from the Watch.</div>
       </div>
       <div class="aud-card">
         <div class="who">The private one</div>
