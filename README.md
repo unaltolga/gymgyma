@@ -17,7 +17,7 @@ analytics. See the privacy policy for details.
 
 ## Support
 
-Questions or bug reports: [pixtolg@gmail.com](mailto:pixtolg@gmail.com)
+Questions or bug reports: [contact@tolgaunal.com](mailto:contact@tolgaunal.com)
 
 ---
 
